@@ -21,7 +21,7 @@ Couple stages and notes:
 
 * Generate public and private key pairs for sending data to beacon
 * Encrypt the data
-* Launch a fully configured docker container that uses the public/private key pairs appropriately to accept data
+* Launch a fully configured beacon server that uses the public/private key pairs appropriately to accept data
 * Send data on to the beacon
 
 ### Server side beacon
