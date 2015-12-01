@@ -26,7 +26,7 @@ From, e.g., [the pipboy Electron app](https://github.com/rgbkrk/pipboy), send th
 
 ### Server side beacon
 
-The beacon itself is all about ease of running and providing data.
+The beacon itself is all about ease of running and providing data. Every user runs their own `beacon`.
 
 * Boot up with configured public/private key pairs
 * Opens up a port specifically for authenticated operations
