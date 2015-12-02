@@ -3,7 +3,7 @@ package main
 import (
 	"crypto/tls"
 	"crypto/x509"
-	"fmt"
+	"io"
 	"log"
 	"net"
 	"os"
@@ -74,41 +74,19 @@ func NewRawAPIServer(cert []byte, key []byte, ca []byte, addr string) (listener 
 }
 
 func handleAPIData(conn net.Conn) {
-	var n int
 	var err error
-	var b []byte
-
-	b = make([]byte, 4096)
-
-	n, err = conn.Read(b)
-	if err != nil {
-		// TODO: Write connection errors to debug
-		log.Printf("Connection error: %v\n", err)
-		conn.Close()
-		return
-	}
 
 	t := time.Now()
 	log.Printf("%v\n", t.UTC())
 
 	for {
+		_, err = io.Copy(conn, conn)
 		if err != nil {
 			// TODO: Write connection errors to debug
 			log.Printf("Connection error: %v\n", err)
 			conn.Close()
 			return
 		}
-		if n > 0 {
-			fmt.Printf("Read %v bytes\n", n)
-			// echo echo
-			n, err = conn.Write(b)
-			if err != nil {
-				log.Printf("Failure: %v\n", err)
-				conn.Close()
-			}
-			log.Printf("Wrote %v bytes\n", n)
-		}
-		n, err = conn.Read(b)
 	}
 }
 
