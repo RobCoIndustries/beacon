@@ -17,7 +17,7 @@ PipBoy Electron App <--- | ---> Fallout 4
 
 ### Client side relay
 
-From, e.g., [the pipboy Electron app](https://github.com/rgbkrk/pipboy), send the pip boy data on to a remote server we'll call a beacon.
+From, e.g., [the pipboy Electron app](https://github.com/RobCoIndustries/pipboy), send the pip boy data on to a remote server we'll call a beacon.
 
 * Generate public and private key pairs for sending data to beacon
 * Encrypt the data
